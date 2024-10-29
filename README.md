@@ -42,4 +42,3 @@ MyGameEngine is a custom game engine written from scratch in Go. It aims to be s
     go run examples/basic/main.go
     ```
 
-### Structure
