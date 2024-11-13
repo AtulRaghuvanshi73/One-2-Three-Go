@@ -7,11 +7,16 @@ import (
 
 type Game struct {
 	// Add any fields your Game struct needs here
+	playerX float64
+	playerY float64
 }
 
 // Correct method signature
 func (g *Game) Update(screen *ebiten.Image) error {
-	// Your update logic goes here
+	if ebiten.IsKeyPressed(ebiten.keyArrowLeft) {
+		g.playerX -= 2
+	}
+
 	return nil
 }
 

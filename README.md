@@ -2,10 +2,10 @@
 
 
 
-MyGameEngine is a custom game engine written from scratch in Go. It aims to be simple, fast, and efficient for developing 2D and 3D games.
+One-2-Three-Go! is a custom game engine written from scratch in Go. It aims to be simple, fast, and efficient for developing 2D and 3D games.
 
 ## Features
-
+###### most of the features are working in progress 😅
 - **Cross-Platform Support**: Runs on Windows, macOS, and Linux.
 - **2D and 3D Rendering**: Supports both 2D and 3D graphics rendering.
 - **Physics Engine**: Built-in physics engine for realistic game physics.
