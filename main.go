@@ -1,22 +1,29 @@
 package main
 
 import (
-	"github.com/hajimehoshi/ebiten"
+	"github.com/hajimehoshi/ebiten/v2"
 	"log"
 )
 
 type Game struct {
-	// Add any fields your Game struct needs here
 	playerX float64
 	playerY float64
 }
 
-// Correct method signature
-func (g *Game) Update(screen *ebiten.Image) error {
-	if ebiten.IsKeyPressed(ebiten.keyArrowLeft) {
+func (g *Game) Update() error {
+	// Updated keyboard input handling
+	if ebiten.IsKeyPressed(ebiten.KeyLeft) {
 		g.playerX -= 2
 	}
-
+	if ebiten.IsKeyPressed(ebiten.KeyRight) {
+		g.playerX += 2
+	}
+	if ebiten.IsKeyPressed(ebiten.KeyUp) {
+		g.playerY -= 2
+	}
+	if ebiten.IsKeyPressed(ebiten.KeyDown) {
+		g.playerY += 2
+	}
 	return nil
 }
 
@@ -24,7 +31,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	// Your drawing logic goes here
 }
 
-func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
+func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
 	// Set the layout dimensions
 	return outsideWidth, outsideHeight
 }
@@ -32,7 +39,9 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 func main() {
 	ebiten.SetWindowSize(640, 480)
 	ebiten.SetWindowTitle("One-2-Three-Go!")
-	if err := ebiten.RunGame(&Game{}); err != nil {
+
+	game := &Game{}
+	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
 	}
 }
